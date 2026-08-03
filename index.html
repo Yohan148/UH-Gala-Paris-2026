@@ -87,21 +87,45 @@
 
         <div class="experience-grid">
           <article class="experience-card reveal tilt-card">
-            <span class="card-number">01</span>
-            <h3>Un lieu d’exception</h3>
-            <p>Une soirée organisée dans un cadre rare et prestigieux, au cœur de Paris.</p>
+            <img class="experience-photo" src="assets/lieu-exception.jpg" alt="Lieu prestigieux du Gala United Hatzalah">
+            <div class="experience-shade"></div>
+            <div class="experience-content">
+              <span class="card-number">01</span>
+              <h3>Un lieu d’exception</h3>
+              <p>Une soirée organisée dans un cadre rare et prestigieux, au cœur de Paris.</p>
+            </div>
           </article>
+
           <article class="experience-card reveal delay-1 tilt-card">
-            <span class="card-number">02</span>
-            <h3>Une cause vitale</h3>
-            <p>Chaque réservation soutient directement les volontaires qui interviennent en quelques minutes.</p>
+            <img class="experience-photo" src="assets/cause-vitale.jpg" alt="Volontaires de United Hatzalah en intervention">
+            <div class="experience-shade"></div>
+            <div class="experience-content">
+              <span class="card-number">02</span>
+              <h3>Une cause vitale</h3>
+              <p>Chaque réservation soutient directement les volontaires qui interviennent en quelques minutes.</p>
+            </div>
           </article>
+
           <article class="experience-card reveal delay-2 tilt-card">
-            <span class="card-number">03</span>
-            <h3>Des invités engagés</h3>
-            <p>Une communauté réunie autour d’une même volonté : sauver davantage de vies.</p>
+            <img class="experience-photo" src="assets/invites-engages.jpg" alt="Invités réunis lors d’un événement de soutien">
+            <div class="experience-shade"></div>
+            <div class="experience-content">
+              <span class="card-number">03</span>
+              <h3>Des invités engagés</h3>
+              <p>Une communauté réunie autour d’une même volonté : sauver davantage de vies.</p>
+            </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="impact-banner">
+      <div class="impact-banner-overlay"></div>
+      <div class="container impact-banner-content reveal">
+        <span class="eyebrow">CHAQUE SECONDE COMPTE</span>
+        <h2>Ensemble, nous pouvons sauver plus de vies.</h2>
+        <p>Une soirée exceptionnelle pour soutenir celles et ceux qui interviennent partout, à toute heure, gratuitement.</p>
+        <a href="#inscription" class="btn btn-primary magnetic">Participer au Gala</a>
       </div>
     </section>
 
@@ -188,6 +212,23 @@
                 <span>Nom *</span>
                 <input type="text" name="nom" autocomplete="family-name" required>
               </label>
+
+              <div class="guest-two-panel full" id="guestTwoPanel" hidden>
+                <div class="guest-two-heading">
+                  <span>Deuxième invité</span>
+                  <small>Ces informations sont obligatoires pour la formule couple.</small>
+                </div>
+                <div class="guest-two-grid">
+                  <label class="field">
+                    <span>Prénom du deuxième invité *</span>
+                    <input type="text" name="prenomInvite2" id="prenomInvite2" autocomplete="off">
+                  </label>
+                  <label class="field">
+                    <span>Nom du deuxième invité *</span>
+                    <input type="text" name="nomInvite2" id="nomInvite2" autocomplete="off">
+                  </label>
+                </div>
+              </div>
               <label class="field">
                 <span>Téléphone *</span>
                 <input type="tel" name="telephone" autocomplete="tel" required>
@@ -213,7 +254,7 @@
                 <input type="text" name="societe" required>
               </label>
               <label class="field full">
-                <span>Message ou précision </span>
+                <span>Message ou précision</span>
                 <textarea name="message" rows="4" placeholder="Nom souhaité pour la table, invités, demande particulière…"></textarea>
               </label>
             </div>
@@ -236,9 +277,48 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <img src="assets/logo-gala-hatzalah.png" alt="United Hatzalah Gala Paris">
-      <p>Gala United Hatzalah — Paris — 22 novembre 2026</p>
+    <div class="footer-top">
+      <div class="container footer-cta">
+        <div>
+          <span class="eyebrow">AGIR DÈS AUJOURD’HUI</span>
+          <h2>Vous ne pouvez pas assister au Gala ?</h2>
+          <p>Votre don peut néanmoins financer du matériel, soutenir les volontaires et contribuer directement à sauver des vies.</p>
+        </div>
+        <a class="btn btn-primary footer-donate" href="https://www.allodons.fr/hatzalah/categories/urgence-sauvez-des-vies-en-israel" target="_blank" rel="noopener">
+          Faire un don
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <img src="assets/logo-gala-hatzalah.png" alt="United Hatzalah Gala Paris">
+        <p>United Hatzalah réunit des milliers de volontaires mobilisés pour intervenir rapidement et gratuitement.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Le Gala</h3>
+        <a href="#experience">L’expérience</a>
+        <a href="#offres">Les formules</a>
+        <a href="#inscription">Liste d’attente</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Informations</h3>
+        <span>22 novembre 2026</span>
+        <span>Paris</span>
+        <span>Ambassade des États-Unis</span>
+      </div>
+
+      <div class="footer-column">
+        <h3>Soutenir</h3>
+        <a href="REMPLACE_ICI_PAR_LE_LIEN_ALLODONS" target="_blank" rel="noopener">Faire un don ↗</a>
+        <a href="#inscription">Réserver une place</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 United Hatzalah France. Tous droits réservés.</p>
       <a href="#top">Retour en haut ↑</a>
     </div>
   </footer>

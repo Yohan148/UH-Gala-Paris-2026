@@ -1,5 +1,4 @@
-
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzvc09MjjUO4Gs5xCOvEuE9Q8I1M9SqgTOFy6_9QnREuHiK_WSpL1SxpNfgjNLrCTtW/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxR8kVF8ZsoT_SmP9DZVPZM8g4mNtp38Z6aJWitDFcmg4wbNVrEmxYQS0CvPv7NUs_L/exec";
 
 const header = document.querySelector(".site-header");
 const glow = document.querySelector(".cursor-glow");
@@ -9,6 +8,9 @@ const packageRadios = document.querySelectorAll('input[name="formule"]');
 const form = document.getElementById("waitlistForm");
 const submitBtn = form.querySelector(".submit-btn");
 const statusBox = document.getElementById("formStatus");
+const guestTwoPanel = document.getElementById("guestTwoPanel");
+const guestTwoFirstName = document.getElementById("prenomInvite2");
+const guestTwoLastName = document.getElementById("nomInvite2");
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 24);
@@ -31,11 +33,34 @@ const observer = new IntersectionObserver((entries) => {
 
 reveals.forEach((el) => observer.observe(el));
 
+function updateGuestTwoFields() {
+  const selected = form.querySelector('input[name="formule"]:checked');
+  const isCouple = selected?.dataset.key === "couple";
+
+  guestTwoPanel.hidden = !isCouple;
+  guestTwoFirstName.required = isCouple;
+  guestTwoLastName.required = isCouple;
+
+  if (!isCouple) {
+    guestTwoFirstName.value = "";
+    guestTwoLastName.value = "";
+    guestTwoFirstName.classList.remove("invalid");
+    guestTwoLastName.classList.remove("invalid");
+  }
+}
+
+packageRadios.forEach((radio) => {
+  radio.addEventListener("change", updateGuestTwoFields);
+});
+
 packageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const key = button.dataset.package;
     const target = [...packageRadios].find((radio) => radio.dataset.key === key);
-    if (target) target.checked = true;
+    if (target) {
+      target.checked = true;
+      updateGuestTwoFields();
+    }
     document.getElementById("inscription").scrollIntoView({ behavior: "smooth" });
   });
 });
@@ -66,32 +91,34 @@ document.querySelectorAll(".magnetic").forEach((button) => {
   });
 });
 
+function getFieldLabel(field) {
+  const labels = {
+    prenom: "le prénom",
+    nom: "le nom",
+    prenomInvite2: "le prénom du deuxième invité",
+    nomInvite2: "le nom du deuxième invité",
+    telephone: "le téléphone",
+    email: "l’adresse e-mail",
+    adresse: "l’adresse complète",
+    codePostal: "le code postal",
+    ville: "la ville",
+    societe: "la société ou l’organisation"
+  };
+  return labels[field.name] || "un champ obligatoire";
+}
+
 function validateForm() {
   const missingFields = [];
-  const requiredFields = form.querySelectorAll("[required]");
+  form.querySelectorAll(".invalid").forEach((field) => field.classList.remove("invalid"));
 
-  form.querySelectorAll(".invalid").forEach((field) => {
-    field.classList.remove("invalid");
-  });
+  const selectedPackage = form.querySelector('input[name="formule"]:checked');
+  if (!selectedPackage) missingFields.push("la formule de réservation");
 
-  const selectedPackage = form.querySelector(
-    'input[name="formule"]:checked'
-  );
-
-  if (!selectedPackage) {
-    missingFields.push("la formule de réservation");
-  }
-
-  requiredFields.forEach((field) => {
-    if (field.type === "radio") {
-      return;
-    }
+  form.querySelectorAll("[required]").forEach((field) => {
+    if (field.type === "radio") return;
 
     if (field.type === "checkbox") {
-      if (!field.checked) {
-        missingFields.push("le consentement");
-      }
-
+      if (!field.checked) missingFields.push("le consentement");
       return;
     }
 
@@ -103,18 +130,12 @@ function validateForm() {
       return;
     }
 
-    if (
-      field.type === "email" &&
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-    ) {
+    if (field.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
       missingFields.push("une adresse e-mail valide");
       field.classList.add("invalid");
     }
 
-    if (
-      field.type === "tel" &&
-      value.replace(/\D/g, "").length < 8
-    ) {
+    if (field.type === "tel" && value.replace(/\D/g, "").length < 8) {
       missingFields.push("un numéro de téléphone valide");
       field.classList.add("invalid");
     }
@@ -126,21 +147,6 @@ function validateForm() {
   };
 }
 
-function getFieldLabel(field) {
-  const labels = {
-    prenom: "le prénom",
-    nom: "le nom",
-    telephone: "le téléphone",
-    email: "l’adresse e-mail",
-    adresse: "l’adresse complète",
-    codePostal: "le code postal",
-    ville: "la ville",
-    societe: "la société ou l’organisation"
-  };
-
-  return labels[field.name] || "un champ obligatoire";
-}
-
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   statusBox.textContent = "";
@@ -148,27 +154,17 @@ form.addEventListener("submit", async (event) => {
 
   const validation = validateForm();
 
-if (!validation.isValid) {
-  statusBox.textContent =
-    "Merci de compléter : " +
-    validation.missingFields.join(", ") +
-    ".";
+  if (!validation.isValid) {
+    statusBox.textContent = "Merci de compléter : " + validation.missingFields.join(", ") + ".";
+    statusBox.classList.add("error");
 
-  statusBox.classList.add("error");
-
-  const firstInvalidField = form.querySelector(".invalid");
-
-  if (firstInvalidField) {
-    firstInvalidField.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-
-    firstInvalidField.focus();
+    const firstInvalidField = form.querySelector(".invalid");
+    if (firstInvalidField) {
+      firstInvalidField.scrollIntoView({ behavior: "smooth", block: "center" });
+      firstInvalidField.focus();
+    }
+    return;
   }
-
-  return;
-}
 
   if (GOOGLE_SCRIPT_URL.includes("COLLE_ICI")) {
     statusBox.textContent = "Ajoute d’abord l’URL Google Apps Script dans le fichier js/app.js.";
@@ -185,16 +181,21 @@ if (!validation.isValid) {
 
   try {
     const formData = new FormData(form);
+
     await fetch(GOOGLE_SCRIPT_URL, {
-  method: "POST",
-  mode: "no-cors",
-  body: formData
-});
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    });
 
     statusBox.textContent = "Votre demande a bien été enregistrée. Notre équipe vous contactera prochainement.";
     statusBox.classList.add("success");
     form.reset();
+    updateGuestTwoFields();
+    statusBox.scrollIntoView({ behavior: "smooth", block: "center" });
+
   } catch (error) {
+    console.error(error);
     statusBox.textContent = "Une erreur est survenue. Merci de réessayer ou de contacter directement notre équipe.";
     statusBox.classList.add("error");
   } finally {
@@ -202,3 +203,5 @@ if (!validation.isValid) {
     submitBtn.disabled = false;
   }
 });
+
+updateGuestTwoFields();
