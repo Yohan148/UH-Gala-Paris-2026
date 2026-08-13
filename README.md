@@ -1,43 +1,45 @@
-# Landing page — Gala United Hatzalah Paris 2026
+# Gala United Hatzalah — Hôtel du Collectionneur
 
-## Structure
+## Parcours
+1. Le destinataire reçoit le carton d'invitation par courrier.
+2. Le QR code du carton pointe vers `index.html`.
+3. Il choisit sa formule.
+4. Ses informations sont enregistrées avec le statut `Paiement en attente`.
+5. Il est redirigé vers le prestataire de paiement.
+6. Après confirmation réelle du paiement, `confirmPaidRegistration(...)` doit être appelée.
+7. Le statut passe à `PAYÉ`.
+8. L'e-mail final part avec l'invitation numérique PDF.
+9. Le reçu fiscal peut être joint uniquement si `CERFA_CONFIG.enabled = true` après validation fiscale.
 
+## Fichiers
 - `index.html`
+- `don.html`
 - `css/style.css`
+- `js/config.js`
 - `js/app.js`
-- `assets/logo-gala-hatzalah.png`
-- `assets/hero-gala-paris.png`
-- `google-apps-script.gs`
+- `js/don.js`
+- `backend/registration.gs`
+- `backend/post-payment.gs`
+- `backend/cerfa.gs`
+- `assets/`
 
-## Connexion à Google Sheets
+## Google Sheet
+Créer un onglet `Inscriptions` avec les colonnes :
+Date | Référence | Formule | Prénom | Nom | Prénom invité 2 | Nom invité 2 | Téléphone | E-mail | Adresse | Code postal | Ville | Société | Message | Consentement | Statut | Transaction | Montant payé
 
-1. Crée un nouveau Google Sheet.
-2. Dans le Google Sheet : **Extensions → Apps Script**.
-3. Efface le code existant.
-4. Copie le contenu de `google-apps-script.gs`.
-5. Clique sur **Déployer → Nouveau déploiement**.
-6. Type : **Application Web**.
-7. Exécuter en tant que : **Moi**.
-8. Qui a accès : **Tout le monde**.
-9. Copie l’URL du déploiement.
-10. Ouvre `js/app.js`.
-11. Remplace :
+## Paiements
+Renseigner les 5 liens dans `js/config.js`.
 
-```js
-const GOOGLE_SCRIPT_URL = "COLLE_ICI_TON_URL_GOOGLE_APPS_SCRIPT";
-```
+Pour une vraie confirmation après paiement, le prestataire de paiement doit appeler votre backend ou fournir un mécanisme équivalent permettant d'exécuter :
+`confirmPaidRegistration(reference, transactionId, amountPaid)`
 
-par ton URL.
+## Reçu fiscal
+Le fichier `backend/cerfa.gs` est désactivé par défaut.
+Ne pas mettre `enabled: true` avant validation :
+- de l'éligibilité de l'organisme à délivrer des reçus fiscaux ;
+- des mentions obligatoires ;
+- de la qualification fiscale du versement correspondant à la place de Gala.
 
-## Images
-
-Les deux images PNG sont déjà présentes dans `assets` :
-
-- `logo-gala-hatzalah.png`
-- `hero-gala-paris.png`
-
-## Prix affichés
-
-- Individuel : 400 €
-- Couple : 800 €
-- Table complète de 10 personnes : 4 000 €
+## QR code
+Aucun QR code n'est affiché sur le site.
+Le QR sera créé séparément pour les cartons d'invitation et pointera vers l'URL finale de la landing.

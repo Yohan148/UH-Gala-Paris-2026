@@ -1,0 +1,1 @@
+const C=window.GALA_CONFIG||{};document.querySelectorAll("[data-don]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const u=C.donationUrls?.[a.dataset.don];if(!u||u.includes("COLLE_ICI")){alert("Configure le lien de don dans js/config.js.");return}location.href=u}));
