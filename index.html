@@ -149,10 +149,25 @@
 
           <div class="form-grid">
             <label class="field full"><span>Nombre de personnes *</span><input type="number" name="nombrePersonnes" min="1" max="50" step="1" value="1" inputmode="numeric" required></label>
-            <label class="field"><span>Prénom</span><input type="text" name="prenom" autocomplete="given-name"></label>
-            <label class="field"><span>Nom</span><input type="text" name="nom" autocomplete="family-name"></label>
-            <label class="field"><span>Téléphone</span><input type="tel" name="telephone" autocomplete="tel"></label>
-            <label class="field"><span>E-mail *</span><input type="email" name="email" autocomplete="email" required></label>
+            <label class="field">
+  <span>Prénom *</span>
+  <input type="text" name="prenom" required>
+</label>
+
+<label class="field">
+  <span>Nom *</span>
+  <input type="text" name="nom" required>
+</label>
+
+<label class="field">
+  <span>Téléphone</span>
+  <input type="tel" name="telephone">
+</label>
+
+<label class="field">
+  <span>E-mail</span>
+  <input type="email" name="email">
+</label>
           </div>
 
           <label class="consent"><input type="checkbox" name="consentement" value="Oui" required><span>J’accepte d’être contacté(e) par United Hatzalah au sujet de ma pré-inscription au Gala.</span></label>
