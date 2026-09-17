@@ -1,0 +1,853 @@
+:root {
+  --bg:#050b14;
+  --bg2:#07101b;
+  --text:#f7f8fa;
+  --muted:#aab5c4;
+  --orange:#ff7a00;
+  --orange2:#ffa11e;
+  --line:rgba(255,255,255,.1);
+  --container:min(1180px,calc(100% - 40px))}
+
+  * {
+    box-sizing:border-box}
+
+    html {
+      scroll-behavior:smooth}
+
+      body {
+        margin:0;
+        background:var(--bg);
+        color:var(--text);
+        font-family:Manrope,sans-serif;
+        line-height:1.6;
+        overflow-x:hidden}
+
+        a {
+          color:inherit;
+          text-decoration:none}
+
+          button,input,textarea {
+            font:inherit}
+
+            button {
+              cursor:pointer}
+
+              .container {
+                width:var(--container);
+                margin:auto}
+
+                .site-header {
+                  position:fixed;
+                  top:0;
+                  left:0;
+                  width:100%;
+                  z-index:30;
+                  transition:.3s}
+
+                  .site-header.scrolled {
+                    background:rgba(5,11,20,.88);
+                    backdrop-filter:blur(16px);
+                    border-bottom:1px solid var(--line)}
+
+                    .header-inner {
+                      min-height:84px;
+                      display:flex;
+                      align-items:center;
+                      justify-content:space-between}
+
+                      .brand img {
+                        width:118px;
+                        height:auto}
+
+                        .header-nav {
+                          display:flex;
+                          gap:20px;
+                          align-items:center}
+
+                          .header-nav a {
+                            font-size:.86rem;
+                            font-weight:800}
+
+                            .nav-don {
+                              background:var(--orange);
+                              color:#111;
+                              padding:11px 17px;
+                              border-radius:999px}
+
+                              .hero {
+                                min-height:100svh;
+                                position:relative;
+                                display:grid;
+                                align-items:center;
+                                padding:135px 0 80px}
+
+                                .hero-bg {
+                                  position:absolute;
+                                  inset:0;
+                                  background:url("../assets/hero-gala-paris.png") center/cover no-repeat}
+
+                                  .hero-overlay {
+                                    position:absolute;
+                                    inset:0;
+                                    background:linear-gradient(90deg,rgba(3,8,15,.98),rgba(3,8,15,.8) 50%,rgba(3,8,15,.24)),linear-gradient(0deg,var(--bg),transparent 25%)}
+
+                                    .hero-content {
+                                      position:relative;
+                                      z-index:2;
+                                      display:grid;
+                                      grid-template-columns:1.3fr .7fr;
+                                      gap:70px;
+                                      align-items:center}
+
+                                      .eyebrow {
+                                        color:var(--orange2);
+                                        font-size:.75rem;
+                                        font-weight:900;
+                                        letter-spacing:.14em;
+                                        text-transform:uppercase;
+                                        display:inline-flex;
+                                        gap:10px;
+                                        align-items:center}
+
+                                        .eyebrow span {
+                                          width:28px;
+                                          height:1px;
+                                          background:var(--orange)}
+
+                                          .hero-kicker {
+                                            margin:22px 0 8px;
+                                            color:#dce2e9;
+                                            font-weight:700}
+
+                                            .hero h1,.section-heading h2,.checkout-copy h2,.don-content h1 {
+                                              font-family:"Playfair Display",serif;
+                                              line-height:.98;
+                                              letter-spacing:-.035em}
+
+                                              .hero h1 {
+                                                font-size:clamp(3.8rem,7vw,7.4rem);
+                                                margin:0}
+
+                                                .hero h1 em,.section-heading em,.don-content em {
+                                                  color:var(--orange);
+                                                  font-style:italic}
+
+                                                  .hero-text {
+                                                    max-width:690px;
+                                                    color:#c6ced8;
+                                                    font-size:1.08rem;
+                                                    margin:26px 0 34px}
+
+                                                    .hero-actions {
+                                                      display:flex;
+                                                      gap:14px;
+                                                      flex-wrap:wrap}
+
+                                                      .btn {
+                                                        min-height:55px;
+                                                        padding:0 24px;
+                                                        border-radius:999px;
+                                                        display:inline-flex;
+                                                        align-items:center;
+                                                        justify-content:center;
+                                                        font-weight:900;
+                                                        transition:.25s}
+
+                                                        .btn-primary {
+                                                          background:linear-gradient(135deg,var(--orange),var(--orange2));
+                                                          color:#111;
+                                                          box-shadow:0 15px 40px rgba(255,122,0,.22)}
+
+                                                          .btn-primary:hover {
+                                                            transform:translateY(-2px)}
+
+                                                            .btn-outline-orange {
+                                                              background:transparent;
+                                                              color:var(--orange);
+                                                              border:1px solid var(--orange);
+                                                              box-shadow:none}
+
+                                                              .hero-facts {
+                                                                display:flex;
+                                                                gap:36px;
+                                                                margin-top:38px;
+                                                                flex-wrap:wrap}
+
+                                                                .hero-facts div {
+                                                                  display:flex;
+                                                                  flex-direction:column}
+
+                                                                  .hero-facts strong {
+                                                                    font-size:1.25rem}
+
+                                                                    .hero-facts span {
+                                                                      font-size:.75rem;
+                                                                      color:var(--muted);
+                                                                      text-transform:uppercase;
+                                                                      letter-spacing:.1em}
+
+                                                                      .hero-panel {
+                                                                        padding:31px;
+                                                                        border-radius:27px;
+                                                                        border:1px solid rgba(255,255,255,.13);
+                                                                        background:linear-gradient(180deg,rgba(18,30,44,.84),rgba(8,16,27,.82));
+                                                                        backdrop-filter:blur(18px)}
+
+                                                                        .panel-kicker {
+                                                                          color:var(--orange);
+                                                                          font-size:.73rem;
+                                                                          font-weight:900;
+                                                                          letter-spacing:.13em}
+
+                                                                          .hero-panel h2 {
+                                                                            font-family:"Playfair Display",serif;
+                                                                            font-size:2.1rem;
+                                                                            line-height:1.08}
+
+                                                                            .hero-panel p,.hero-panel li {
+                                                                              color:#c4ccd6}
+
+                                                                              .hero-panel ul {
+                                                                                padding:0;
+                                                                                list-style:none}
+
+                                                                                .hero-panel li {
+                                                                                  border-bottom:1px solid var(--line);
+                                                                                  padding:11px 0 11px 21px;
+                                                                                  position:relative}
+
+                                                                                  .hero-panel li:before {
+                                                                                    content:"";
+                                                                                    position:absolute;
+                                                                                    left:0;
+                                                                                    top:20px;
+                                                                                    width:7px;
+                                                                                    height:7px;
+                                                                                    border-radius:50%;
+                                                                                    background:var(--orange)}
+
+                                                                                    .panel-link {
+                                                                                      color:var(--orange);
+                                                                                      font-weight:900}
+
+                                                                                      .prestige-strip {
+                                                                                        background:var(--orange);
+                                                                                        color:#111}
+
+                                                                                        .prestige-grid {
+                                                                                          min-height:70px;
+                                                                                          display:flex;
+                                                                                          align-items:center;
+                                                                                          justify-content:center;
+                                                                                          gap:28px;
+                                                                                          font-weight:900;
+                                                                                          font-size:.78rem;
+                                                                                          letter-spacing:.16em}
+
+                                                                                          .prestige-grid i {
+                                                                                            width:4px;
+                                                                                            height:4px;
+                                                                                            background:#111;
+                                                                                            border-radius:50%}
+
+                                                                                            .section {
+                                                                                              padding:115px 0}
+
+                                                                                              .section-heading {
+                                                                                                max-width:780px;
+                                                                                                margin-bottom:55px}
+
+                                                                                                .section-heading.centered {
+                                                                                                  text-align:center;
+                                                                                                  margin-inline:auto}
+
+                                                                                                  .section-heading h2,.checkout-copy h2 {
+                                                                                                    font-size:clamp(2.8rem,5vw,5rem);
+                                                                                                    margin:14px 0}
+
+                                                                                                    .section-heading p,.checkout-copy p {
+                                                                                                      color:var(--muted)}
+
+                                                                                                      .experience {
+                                                                                                        background:linear-gradient(180deg,var(--bg),var(--bg2))}
+
+                                                                                                        .experience-grid {
+                                                                                                          display:grid;
+                                                                                                          grid-template-columns:repeat(3,1fr);
+                                                                                                          gap:20px}
+
+                                                                                                          .experience-card {
+                                                                                                            min-height:430px;
+                                                                                                            border-radius:26px;
+                                                                                                            overflow:hidden;
+                                                                                                            position:relative;
+                                                                                                            border:1px solid var(--line)}
+
+                                                                                                            .experience-card img {
+                                                                                                              position:absolute;
+                                                                                                              inset:0;
+                                                                                                              width:100%;
+                                                                                                              height:100%;
+                                                                                                              object-fit:cover;
+                                                                                                              transition:.6s}
+
+                                                                                                              .experience-card:hover img {
+                                                                                                                transform:scale(1.06)}
+
+                                                                                                                .shade {
+                                                                                                                  position:absolute;
+                                                                                                                  inset:0;
+                                                                                                                  background:linear-gradient(180deg,transparent,rgba(3,8,15,.24) 45%,rgba(3,8,15,.98))}
+
+                                                                                                                  .card-copy {
+                                                                                                                    position:relative;
+                                                                                                                    z-index:2;
+                                                                                                                    min-height:430px;
+                                                                                                                    padding:30px;
+                                                                                                                    display:flex;
+                                                                                                                    flex-direction:column;
+                                                                                                                    justify-content:flex-end}
+
+                                                                                                                    .card-copy>span {
+                                                                                                                      color:var(--orange);
+                                                                                                                      font-weight:900}
+
+                                                                                                                      .card-copy h3 {
+                                                                                                                        font-size:1.6rem;
+                                                                                                                        margin:8px 0}
+
+                                                                                                                        .card-copy p {
+                                                                                                                          color:#c9d1da}
+
+                                                                                                                          .impact-banner {
+                                                                                                                            min-height:620px;
+                                                                                                                            position:relative;
+                                                                                                                            display:grid;
+                                                                                                                            align-items:center;
+                                                                                                                            background:url("../assets/section-background.gif") center/cover fixed no-repeat}
+
+                                                                                                                            .impact-overlay {
+                                                                                                                              position:absolute;
+                                                                                                                              inset:0;
+                                                                                                                              background:linear-gradient(90deg,rgba(3,8,15,.97),rgba(3,8,15,.54),rgba(3,8,15,.25)),linear-gradient(0deg,var(--bg2),transparent 25%,transparent 75%,var(--bg2))}
+
+                                                                                                                              .impact-content {
+                                                                                                                                position:relative;
+                                                                                                                                z-index:2;
+                                                                                                                                max-width:780px}
+
+                                                                                                                                .impact-content h2 {
+                                                                                                                                  font-family:"Playfair Display",serif;
+                                                                                                                                  font-size:clamp(3rem,6vw,6rem);
+                                                                                                                                  line-height:1;
+                                                                                                                                  margin:18px 0}
+
+                                                                                                                                  .impact-content p {
+                                                                                                                                    color:#d5dde6;
+                                                                                                                                    font-size:1.08rem}
+
+                                                                                                                                    .offers {
+                                                                                                                                      background:var(--bg2)}
+
+                                                                                                                                      .pricing-grid {
+                                                                                                                                        display:grid;
+                                                                                                                                        grid-template-columns:repeat(5,1fr);
+                                                                                                                                        gap:16px}
+
+                                                                                                                                        .price-card {
+                                                                                                                                          min-height:325px;
+                                                                                                                                          padding:26px;
+                                                                                                                                          border-radius:23px;
+                                                                                                                                          border:1px solid var(--line);
+                                                                                                                                          background:linear-gradient(180deg,#0d1826,#09121e);
+                                                                                                                                          color:var(--text);
+                                                                                                                                          display:flex;
+                                                                                                                                          flex-direction:column;
+                                                                                                                                          align-items:flex-start;
+                                                                                                                                          position:relative;
+                                                                                                                                          transition:.3s}
+
+                                                                                                                                          .price-card:hover,.price-card.selected {
+                                                                                                                                            transform:translateY(-7px);
+                                                                                                                                            border-color:var(--orange)}
+
+                                                                                                                                            .price-card.vip {
+                                                                                                                                              border-color:rgba(255,122,0,.7)}
+
+                                                                                                                                              .price-card em {
+                                                                                                                                                position:absolute;
+                                                                                                                                                top:18px;
+                                                                                                                                                right:18px;
+                                                                                                                                                background:var(--orange);
+                                                                                                                                                color:#111;
+                                                                                                                                                font-style:normal;
+                                                                                                                                                font-size:.68rem;
+                                                                                                                                                font-weight:900;
+                                                                                                                                                padding:5px 9px;
+                                                                                                                                                border-radius:999px}
+
+                                                                                                                                                .price-card>span {
+                                                                                                                                                  color:var(--muted);
+                                                                                                                                                  font-size:.78rem;
+                                                                                                                                                  text-transform:uppercase;
+                                                                                                                                                  letter-spacing:.12em;
+                                                                                                                                                  font-weight:900}
+
+                                                                                                                                                  .price-card strong {
+                                                                                                                                                    font-size:2.55rem;
+                                                                                                                                                    margin-top:auto}
+
+                                                                                                                                                    .price-card small {
+                                                                                                                                                      color:var(--muted)}
+
+                                                                                                                                                      .price-card b {
+                                                                                                                                                        margin-top:25px;
+                                                                                                                                                        background:var(--orange);
+                                                                                                                                                        color:#111;
+                                                                                                                                                        padding:9px 14px;
+                                                                                                                                                        border-radius:999px}
+
+                                                                                                                                                        .checkout {
+                                                                                                                                                          background:linear-gradient(180deg,var(--bg2),var(--bg))}
+
+                                                                                                                                                          .checkout-grid {
+                                                                                                                                                            display:grid;
+                                                                                                                                                            grid-template-columns:.78fr 1.22fr;
+                                                                                                                                                            gap:75px;
+                                                                                                                                                            align-items:start}
+
+                                                                                                                                                            .checkout-copy {
+                                                                                                                                                              position:sticky;
+                                                                                                                                                              top:120px}
+
+                                                                                                                                                              .selection-summary {
+                                                                                                                                                                padding:18px;
+                                                                                                                                                                border:1px solid var(--line);
+                                                                                                                                                                border-radius:18px;
+                                                                                                                                                                background:rgba(255,255,255,.025);
+                                                                                                                                                                display:flex;
+                                                                                                                                                                flex-direction:column;
+                                                                                                                                                                margin:26px 0}
+
+                                                                                                                                                                .selection-summary span {
+                                                                                                                                                                  font-size:.72rem;
+                                                                                                                                                                  color:var(--muted);
+                                                                                                                                                                  text-transform:uppercase;
+                                                                                                                                                                  letter-spacing:.12em}
+
+                                                                                                                                                                  .selection-summary strong {
+                                                                                                                                                                    color:var(--orange);
+                                                                                                                                                                    font-size:1.2rem}
+
+                                                                                                                                                                    .process-list {
+                                                                                                                                                                      display:grid;
+                                                                                                                                                                      gap:12px}
+
+                                                                                                                                                                      .process-list>div {
+                                                                                                                                                                        display:flex;
+                                                                                                                                                                        gap:12px;
+                                                                                                                                                                        padding:14px;
+                                                                                                                                                                        border:1px solid var(--line);
+                                                                                                                                                                        border-radius:16px}
+
+                                                                                                                                                                        .process-list>div>span {
+                                                                                                                                                                          width:30px;
+                                                                                                                                                                          height:30px;
+                                                                                                                                                                          border-radius:50%;
+                                                                                                                                                                          background:var(--orange);
+                                                                                                                                                                          color:#111;
+                                                                                                                                                                          display:grid;
+                                                                                                                                                                          place-items:center;
+                                                                                                                                                                          font-weight:900;
+                                                                                                                                                                          flex:0 0 30px}
+
+                                                                                                                                                                          .process-list p {
+                                                                                                                                                                            display:flex;
+                                                                                                                                                                            flex-direction:column;
+                                                                                                                                                                            margin:0}
+
+                                                                                                                                                                            .process-list small {
+                                                                                                                                                                              color:var(--muted)}
+
+                                                                                                                                                                              .registration-form {
+                                                                                                                                                                                border:1px solid var(--line);
+                                                                                                                                                                                border-radius:28px;
+                                                                                                                                                                                padding:36px;
+                                                                                                                                                                                background:linear-gradient(180deg,rgba(16,28,44,.96),rgba(8,16,27,.98))}
+
+                                                                                                                                                                                .form-grid {
+                                                                                                                                                                                  display:grid;
+                                                                                                                                                                                  grid-template-columns:1fr 1fr;
+                                                                                                                                                                                  gap:18px}
+
+                                                                                                                                                                                  .field {
+                                                                                                                                                                                    display:flex;
+                                                                                                                                                                                    flex-direction:column;
+                                                                                                                                                                                    gap:8px}
+
+                                                                                                                                                                                    .field.full,.guest-two.full {
+                                                                                                                                                                                      grid-column:1/-1}
+
+                                                                                                                                                                                      .field span {
+                                                                                                                                                                                        font-size:.75rem;
+                                                                                                                                                                                        font-weight:900;
+                                                                                                                                                                                        color:#c5ced8;
+                                                                                                                                                                                        text-transform:uppercase;
+                                                                                                                                                                                        letter-spacing:.08em}
+
+                                                                                                                                                                                        .field input,.field textarea {
+                                                                                                                                                                                          width:100%;
+                                                                                                                                                                                          border:1px solid rgba(255,255,255,.12);
+                                                                                                                                                                                          border-radius:14px;
+                                                                                                                                                                                          background:rgba(255,255,255,.035);
+                                                                                                                                                                                          color:white;
+                                                                                                                                                                                          padding:15px 16px;
+                                                                                                                                                                                          outline:none}
+
+                                                                                                                                                                                          .field input:focus,.field textarea:focus {
+                                                                                                                                                                                            border-color:var(--orange);
+                                                                                                                                                                                            box-shadow:0 0 0 4px rgba(255,122,0,.08)}
+
+                                                                                                                                                                                            .field input.invalid {
+                                                                                                                                                                                              border-color:#ff6570}
+
+                                                                                                                                                                                              .guest-two {
+                                                                                                                                                                                                border:1px solid rgba(255,122,0,.35);
+                                                                                                                                                                                                background:rgba(255,122,0,.05);
+                                                                                                                                                                                                border-radius:18px;
+                                                                                                                                                                                                padding:19px}
+
+                                                                                                                                                                                                .guest-two[hidden] {
+                                                                                                                                                                                                  display:none}
+
+                                                                                                                                                                                                  .guest-head {
+                                                                                                                                                                                                    display:flex;
+                                                                                                                                                                                                    justify-content:space-between;
+                                                                                                                                                                                                    gap:12px;
+                                                                                                                                                                                                    margin-bottom:15px}
+
+                                                                                                                                                                                                    .guest-head strong {
+                                                                                                                                                                                                      color:var(--orange)}
+
+                                                                                                                                                                                                      .guest-head small {
+                                                                                                                                                                                                        color:var(--muted)}
+
+                                                                                                                                                                                                        .guest-grid {
+                                                                                                                                                                                                          display:grid;
+                                                                                                                                                                                                          grid-template-columns:1fr 1fr;
+                                                                                                                                                                                                          gap:18px}
+
+                                                                                                                                                                                                          .consent {
+                                                                                                                                                                                                            display:flex;
+                                                                                                                                                                                                            gap:10px;
+                                                                                                                                                                                                            color:var(--muted);
+                                                                                                                                                                                                            font-size:.85rem;
+                                                                                                                                                                                                            margin:22px 0}
+
+                                                                                                                                                                                                            .consent input {
+                                                                                                                                                                                                              accent-color:var(--orange)}
+
+                                                                                                                                                                                                              .submit-btn {
+                                                                                                                                                                                                                border:0;
+                                                                                                                                                                                                                width:100%;
+                                                                                                                                                                                                                min-height:60px;
+                                                                                                                                                                                                                border-radius:999px;
+                                                                                                                                                                                                                background:linear-gradient(135deg,var(--orange),var(--orange2));
+                                                                                                                                                                                                                color:#111;
+                                                                                                                                                                                                                font-weight:900}
+
+                                                                                                                                                                                                                .secure {
+                                                                                                                                                                                                                  text-align:center;
+                                                                                                                                                                                                                  color:var(--muted);
+                                                                                                                                                                                                                  font-size:.8rem}
+
+                                                                                                                                                                                                                  .form-status {
+                                                                                                                                                                                                                    text-align:center;
+                                                                                                                                                                                                                    font-weight:800}
+
+                                                                                                                                                                                                                    .form-status.error {
+                                                                                                                                                                                                                      color:#ff7580}
+
+                                                                                                                                                                                                                      .form-status.success {
+                                                                                                                                                                                                                        color:#6add99}
+
+                                                                                                                                                                                                                        .donation-bridge {
+                                                                                                                                                                                                                          background:var(--orange);
+                                                                                                                                                                                                                          color:#111}
+
+                                                                                                                                                                                                                          .donation-inner {
+                                                                                                                                                                                                                            min-height:280px;
+                                                                                                                                                                                                                            display:flex;
+                                                                                                                                                                                                                            align-items:center;
+                                                                                                                                                                                                                            justify-content:space-between;
+                                                                                                                                                                                                                            gap:65px}
+
+                                                                                                                                                                                                                            .donation-inner h2 {
+                                                                                                                                                                                                                              font-family:"Playfair Display",serif;
+                                                                                                                                                                                                                              font-size:clamp(2.6rem,5vw,4.5rem);
+                                                                                                                                                                                                                              line-height:1;
+                                                                                                                                                                                                                              margin:12px 0}
+
+                                                                                                                                                                                                                              .dark-eyebrow {
+                                                                                                                                                                                                                                color:#111}
+
+.btn-dark {
+  background: #111;
+  color: #fff;
+  min-width: 180px;
+  white-space: nowrap;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1.3rem;
+}
+
+.site-footer {
+                                                                                                                                                                                                                                    background:#040910}
+
+                                                                                                                                                                                                                                    .footer-main {
+                                                                                                                                                                                                                                      padding:62px 0 44px;
+                                                                                                                                                                                                                                      display:grid;
+                                                                                                                                                                                                                                      grid-template-columns:1.6fr 1fr 1fr;
+                                                                                                                                                                                                                                      gap:55px}
+
+                                                                                                                                                                                                                                      .footer-brand img {
+                                                                                                                                                                                                                                        width:155px}
+
+                                                                                                                                                                                                                                        .footer-brand p,.footer-column a {
+                                                                                                                                                                                                                                          color:var(--muted)}
+
+                                                                                                                                                                                                                                          .footer-column {
+                                                                                                                                                                                                                                            display:flex;
+                                                                                                                                                                                                                                            flex-direction:column;
+                                                                                                                                                                                                                                            gap:9px}
+
+                                                                                                                                                                                                                                            .footer-bottom {
+                                                                                                                                                                                                                                              min-height:74px;
+                                                                                                                                                                                                                                              border-top:1px solid var(--line);
+                                                                                                                                                                                                                                              display:flex;
+                                                                                                                                                                                                                                              align-items:center;
+                                                                                                                                                                                                                                              justify-content:space-between;
+                                                                                                                                                                                                                                              color:var(--muted);
+                                                                                                                                                                                                                                              font-size:.8rem}
+
+                                                                                                                                                                                                                                              .footer-bottom a {
+                                                                                                                                                                                                                                                color:var(--orange)}
+
+                                                                                                                                                                                                                                                .reveal {
+                                                                                                                                                                                                                                                  opacity:0;
+                                                                                                                                                                                                                                                  transform:translateY(30px);
+                                                                                                                                                                                                                                                  transition:.75s}
+
+                                                                                                                                                                                                                                                  .reveal.visible {
+                                                                                                                                                                                                                                                    opacity:1;
+                                                                                                                                                                                                                                                    transform:none}
+
+                                                                                                                                                                                                                                                    .delay-1 {
+                                                                                                                                                                                                                                                      transition-delay:.12s}
+
+                                                                                                                                                                                                                                                      .delay-2 {
+                                                                                                                                                                                                                                                        transition-delay:.24s}
+
+                                                                                                                                                                                                                                                        .don-hero {
+                                                                                                                                                                                                                                                          min-height:72vh;
+                                                                                                                                                                                                                                                          position:relative;
+                                                                                                                                                                                                                                                          display:grid;
+                                                                                                                                                                                                                                                          align-items:end;
+                                                                                                                                                                                                                                                          padding:150px 0 80px}
+
+                                                                                                                                                                                                                                                          .don-bg {
+                                                                                                                                                                                                                                                            position:absolute;
+                                                                                                                                                                                                                                                            inset:0;
+                                                                                                                                                                                                                                                            background:url("../assets/section-background.jpg") center/cover no-repeat}
+
+                                                                                                                                                                                                                                                            .don-overlay {
+                                                                                                                                                                                                                                                              position:absolute;
+                                                                                                                                                                                                                                                              inset:0;
+                                                                                                                                                                                                                                                              background:linear-gradient(90deg,rgba(3,8,15,.96),rgba(3,8,15,.55)),linear-gradient(0deg,var(--bg),transparent 40%)}
+
+                                                                                                                                                                                                                                                              .don-content {
+                                                                                                                                                                                                                                                                position:relative;
+                                                                                                                                                                                                                                                                z-index:2}
+
+                                                                                                                                                                                                                                                                .don-content h1 {
+                                                                                                                                                                                                                                                                  font-size:clamp(4rem,7vw,7rem);
+                                                                                                                                                                                                                                                                  margin:16px 0}
+
+                                                                                                                                                                                                                                                                  .don-content p {
+                                                                                                                                                                                                                                                                    max-width:720px;
+                                                                                                                                                                                                                                                                    color:#d4dce5}
+
+                                                                                                                                                                                                                                                                    .don-grid {
+                                                                                                                                                                                                                                                                      display:grid;
+                                                                                                                                                                                                                                                                      grid-template-columns:repeat(4,1fr);
+                                                                                                                                                                                                                                                                      gap:18px}
+
+                                                                                                                                                                                                                                                                      .don-card {
+                                                                                                                                                                                                                                                                        min-height:285px;
+                                                                                                                                                                                                                                                                        border:1px solid var(--line);
+                                                                                                                                                                                                                                                                        border-radius:24px;
+                                                                                                                                                                                                                                                                        padding:28px;
+                                                                                                                                                                                                                                                                        display:flex;
+                                                                                                                                                                                                                                                                        flex-direction:column;
+                                                                                                                                                                                                                                                                        background:linear-gradient(180deg,#0d1826,#09121e);
+                                                                                                                                                                                                                                                                        transition:.3s}
+
+                                                                                                                                                                                                                                                                        .don-card:hover {
+                                                                                                                                                                                                                                                                          transform:translateY(-7px);
+                                                                                                                                                                                                                                                                          border-color:var(--orange)}
+
+                                                                                                                                                                                                                                                                          .don-card.featured {
+                                                                                                                                                                                                                                                                            border-color:var(--orange)}
+
+                                                                                                                                                                                                                                                                            .don-card span {
+                                                                                                                                                                                                                                                                              color:var(--orange);
+                                                                                                                                                                                                                                                                              font-size:.78rem;
+                                                                                                                                                                                                                                                                              font-weight:900;
+                                                                                                                                                                                                                                                                              text-transform:uppercase;
+                                                                                                                                                                                                                                                                              letter-spacing:.12em}
+
+                                                                                                                                                                                                                                                                              .don-card strong {
+                                                                                                                                                                                                                                                                                font-size:2.5rem;
+                                                                                                                                                                                                                                                                                margin-top:auto}
+
+                                                                                                                                                                                                                                                                                .don-card small {
+                                                                                                                                                                                                                                                                                  color:var(--muted)}
+
+                                                                                                                                                                                                                                                                                  .don-impact {
+                                                                                                                                                                                                                                                                                    margin-top:75px;
+                                                                                                                                                                                                                                                                                    border:1px solid var(--line);
+                                                                                                                                                                                                                                                                                    border-radius:28px;
+                                                                                                                                                                                                                                                                                    overflow:hidden;
+                                                                                                                                                                                                                                                                                    display:grid;
+                                                                                                                                                                                                                                                                                    grid-template-columns:1fr 1fr;
+                                                                                                                                                                                                                                                                                    background:#0a1421}
+
+                                                                                                                                                                                                                                                                                    .don-impact img {
+                                                                                                                                                                                                                                                                                      width:100%;
+                                                                                                                                                                                                                                                                                      height:100%;
+                                                                                                                                                                                                                                                                                      object-fit:cover;
+                                                                                                                                                                                                                                                                                      min-height:430px}
+
+                                                                                                                                                                                                                                                                                      .don-impact>div {
+                                                                                                                                                                                                                                                                                        padding:50px;
+                                                                                                                                                                                                                                                                                        display:flex;
+                                                                                                                                                                                                                                                                                        flex-direction:column;
+                                                                                                                                                                                                                                                                                        justify-content:center}
+
+                                                                                                                                                                                                                                                                                        .don-impact h2 {
+                                                                                                                                                                                                                                                                                          font-family:"Playfair Display",serif;
+                                                                                                                                                                                                                                                                                          font-size:3.4rem;
+                                                                                                                                                                                                                                                                                          line-height:1;
+                                                                                                                                                                                                                                                                                          margin:15px 0}
+
+                                                                                                                                                                                                                                                                                          .don-impact p {
+                                                                                                                                                                                                                                                                                            color:var(--muted)}
+
+                                                                                                                                                                                                                                                                                            @media(max-width:1100px) {
+                                                                                                                                                                                                                                                                                              .hero-content,.checkout-grid {
+                                                                                                                                                                                                                                                                                                grid-template-columns:1fr}
+
+                                                                                                                                                                                                                                                                                                .checkout-copy {
+                                                                                                                                                                                                                                                                                                  position:static}
+
+                                                                                                                                                                                                                                                                                                  .pricing-grid {
+                                                                                                                                                                                                                                                                                                    grid-template-columns:repeat(2,1fr)}
+
+                                                                                                                                                                                                                                                                                                    .experience-grid {
+                                                                                                                                                                                                                                                                                                      grid-template-columns:1fr}
+
+                                                                                                                                                                                                                                                                                                      .don-grid {
+                                                                                                                                                                                                                                                                                                        grid-template-columns:repeat(2,1fr)}
+
+                                                                                                                                                                                                                                                                                                      }
+
+                                                                                                                                                                                                                                                                                                      @media(max-width:720px) {
+                                                                                                                                                                                                                                                                                                        :root {
+                                                                                                                                                                                                                                                                                                          --container:min(100% - 24px,1180px)}
+
+                                                                                                                                                                                                                                                                                                          .brand img {
+                                                                                                                                                                                                                                                                                                            width:96px}
+
+                                                                                                                                                                                                                                                                                                            .header-nav a:first-child {
+                                                                                                                                                                                                                                                                                                              display:none}
+
+                                                                                                                                                                                                                                                                                                              .hero {
+                                                                                                                                                                                                                                                                                                                padding-top:110px}
+
+                                                                                                                                                                                                                                                                                                                .hero h1 {
+                                                                                                                                                                                                                                                                                                                  font-size:clamp(3.1rem,15vw,5rem)}
+
+                                                                                                                                                                                                                                                                                                                  .hero-actions {
+                                                                                                                                                                                                                                                                                                                    flex-direction:column}
+
+                                                                                                                                                                                                                                                                                                                    .btn {
+                                                                                                                                                                                                                                                                                                                      width:100%}
+
+                                                                                                                                                                                                                                                                                                                      .prestige-grid {
+                                                                                                                                                                                                                                                                                                                        min-height:95px;
+                                                                                                                                                                                                                                                                                                                        flex-wrap:wrap;
+                                                                                                                                                                                                                                                                                                                        gap:10px 16px;
+                                                                                                                                                                                                                                                                                                                        padding:14px 0;
+                                                                                                                                                                                                                                                                                                                        text-align:center}
+
+                                                                                                                                                                                                                                                                                                                        .section {
+                                                                                                                                                                                                                                                                                                                          padding:84px 0}
+
+                                                                                                                                                                                                                                                                                                                          .pricing-grid,.don-grid {
+                                                                                                                                                                                                                                                                                                                            grid-template-columns:1fr}
+
+                                                                                                                                                                                                                                                                                                                            .form-grid,.guest-grid {
+                                                                                                                                                                                                                                                                                                                              grid-template-columns:1fr}
+
+                                                                                                                                                                                                                                                                                                                              .registration-form {
+                                                                                                                                                                                                                                                                                                                                padding:24px 18px}
+
+                                                                                                                                                                                                                                                                                                                                .impact-banner {
+                                                                                                                                                                                                                                                                                                                                  background-attachment:scroll}
+
+                                                                                                                                                                                                                                                                                                                                  .donation-inner {
+                                                                                                                                                                                                                                                                                                                                    padding:60px 0;
+                                                                                                                                                                                                                                                                                                                                    flex-direction:column;
+                                                                                                                                                                                                                                                                                                                                    align-items:flex-start}
+
+                                                                                                                                                                                                                                                                                                                                    .footer-main {
+                                                                                                                                                                                                                                                                                                                                      grid-template-columns:1fr}
+
+                                                                                                                                                                                                                                                                                                                                      .footer-bottom {
+                                                                                                                                                                                                                                                                                                                                        padding:20px 0;
+                                                                                                                                                                                                                                                                                                                                        flex-direction:column;
+                                                                                                                                                                                                                                                                                                                                        gap:8px}
+
+                                                                                                                                                                                                                                                                                                                                        .don-impact {
+                                                                                                                                                                                                                                                                                                                                          grid-template-columns:1fr}
+
+                                                                                                                                                                                                                                                                                                                                          .don-impact>div {
+                                                                                                                                                                                                                                                                                                                                            padding:30px}
+
+                                                                                                                                                                                                                                                                                                                                          }
+
+/* =========================================================
+   VERSION PRE-INSCRIPTION
+========================================================= */
+.submit-btn:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.registration-form .secure {
+  max-width: 520px;
+  margin: 14px auto 0;
+  line-height: 1.5;
+}
+
+.form-status.success {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(106,221,153,.35);
+  border-radius: 14px;
+  background: rgba(106,221,153,.07);
+}
+
+.form-status.error {
+  margin-top: 16px;
+}
